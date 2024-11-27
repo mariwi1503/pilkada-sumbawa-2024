@@ -164,7 +164,7 @@ const DataVisualization = () => {
         <div className="confetti"></div>
         <div className="confetti"></div>
         <span className="text-lg font-bold text-white animate-bounce">
-          🎉 Jarot Nasori Menang! 🎉
+          🎉 Jarot Ansori Menang! 🎉
         </span>
       </div>
     </div>
