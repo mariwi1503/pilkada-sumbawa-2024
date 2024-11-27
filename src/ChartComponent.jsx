@@ -157,7 +157,7 @@ const DataVisualization = () => {
       </div>
 
       {/* Banner Section */}
-      <div className="w-full relative bg-blue-500 p-4 text-center rounded-lg mt-8 shadow-lg overflow-hidden glow">
+      <div className="w-full lg:w-1/2 relative bg-orange-400 p-4 text-center rounded-lg mt-8 shadow-lg overflow-hidden glow">
         <div className="confetti"></div>
         <div className="confetti"></div>
         <div className="confetti"></div>
