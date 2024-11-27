@@ -22,6 +22,7 @@ const DataVisualization = () => {
   const [progres, setProgres] = useState(progress);
   const [isLoading, setIsLoading] = useState(true);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
+  const [updatedAt, setUpdatedAt] = useState("2024-11-27 23:15:00");
 
   useEffect(() => {
     fetch(
@@ -34,6 +35,7 @@ const DataVisualization = () => {
 
         setChartData(chartValues);
         setProgres(progress);
+        setUpdatedAt(data.ts);
         setIsLoading(false);
       })
       .catch((error) => {
@@ -66,7 +68,7 @@ const DataVisualization = () => {
     labels,
     datasets: [
       {
-        label: "Grafik voting",
+        label: `Diperbarui pada: ${updatedAt}`,
         data: dataValues,
         backgroundColor: ["#4CAF50", "#2196F3", "#FF9800", "#F44336"],
         borderColor: ["#388E3C", "#1976D2", "#F57C00", "#D32F2F"],
@@ -164,7 +166,7 @@ const DataVisualization = () => {
         <div className="confetti"></div>
         <div className="confetti"></div>
         <span className="text-lg font-bold text-white animate-bounce">
-          🎉 Jarot Ansori Menang! 🎉
+          🎉 Selamat untuk Jarot Ansori 🎉
         </span>
       </div>
     </div>
