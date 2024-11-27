@@ -56,7 +56,12 @@ const DataVisualization = () => {
     return <div>Loading...</div>;
   }
 
-  const labels = ["01", "02", "03", "04"];
+  const labels = [
+    "Novi - Talib",
+    "Jarot - Ansori",
+    "Rafiq - Sahril",
+    "Mahmud - BJS",
+  ];
   const hardCode = ["1000865", "1000866", "1000867", "1000868"];
   const dataValues = hardCode.map((key) => chartData[key]);
   const totalVotes = dataValues.reduce((sum, value) => sum + value, 0);
@@ -134,21 +139,19 @@ const DataVisualization = () => {
       </div>
 
       {/* Informasi Progress Section */}
-      <div className="w-full max-w-4xl bg-white p-6 rounded-lg shadow-md mt-6">
+      <div className="w-full max-w-4xl mt-4">
         <div className="relative pt-1">
-          <div className="flex mb-2 items-center justify-between">
-            <div>
-              <span className="font-semibold text-gray-700">
-                Progress: {progres.persen}%
-              </span>
-            </div>
+          <div className="mb-2">
+            <span className="text-gray-700 font-semibold">
+              Suara masuk: {progres.persen}%
+            </span>
           </div>
           <div className="flex mb-2">
             <div className="relative flex-1">
               <div className="flex mb-2">
-                <div className="w-full bg-gray-200 rounded-full h-2.5">
+                <div className="w-full bg-gray-200 rounded-full h-5">
                   <div
-                    className="bg-green-500 h-2.5 rounded-full"
+                    className="bg-green-600 h-5 rounded-full"
                     style={{ width: `${progres.persen}%` }}
                   />
                 </div>
@@ -159,7 +162,7 @@ const DataVisualization = () => {
       </div>
 
       {/* Banner Section */}
-      <div className="w-full lg:w-1/2 relative bg-orange-400 p-4 text-center rounded-lg mt-8 shadow-lg overflow-hidden glow">
+      <div className="w-full lg:w-1/2 relative bg-orange-400 p-4 text-center rounded-lg mt-4 shadow-lg overflow-hidden glow">
         <div className="confetti"></div>
         <div className="confetti"></div>
         <div className="confetti"></div>
