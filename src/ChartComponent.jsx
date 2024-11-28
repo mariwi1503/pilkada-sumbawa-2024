@@ -34,7 +34,7 @@ const DataVisualization = () => {
         const progress = data.tungsura.chart.progres;
 
         // setChartData(chartValues);
-        // setProgres(progress);
+        setProgres(progress);
         setUpdatedAt(data.ts);
         setIsLoading(false);
       })
