@@ -8,20 +8,20 @@ Chart.register(ChartDataLabels);
 
 function ChartGubernurComponent() {
   const chartValues = {
-    1000039: 762751,
-    1000040: 870763,
-    1000041: 1139690,
+    1000039: 769842,
+    1000040: 878590,
+    1000041: 1152998,
   };
   const progress = {
     total: 8405,
-    persen: 98.49,
-    progres: 8278,
+    persen: 99.19,
+    progres: 8337,
   };
   const [chartData, setChartData] = useState(chartValues);
   const [progres, setProgres] = useState(progress);
   const [isLoading, setIsLoading] = useState(true);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
-  const [updatedAt, setUpdatedAt] = useState("2024-11-27 23:15:00");
+  const [updatedAt, setUpdatedAt] = useState("2024-11-28 10:15:04");
 
   useEffect(() => {
     fetch(
@@ -42,7 +42,7 @@ function ChartGubernurComponent() {
         setIsLoading(false);
       });
 
-    const mediaQuery = window.matchMedia("(max-width: 768px)");
+    const mediaQuery = window.matchMedia("(max-width: 700px)");
     setIsSmallScreen(mediaQuery.matches);
 
     const handleResize = () => setIsSmallScreen(mediaQuery.matches);
@@ -133,9 +133,12 @@ function ChartGubernurComponent() {
       {/* Informasi Progress Section */}
       <div className="w-full max-w-4xl mt-4">
         <div className="relative pt-1">
-          <div className="mb-2">
-            <span className="text-gray-700 font-semibold">
+          <div className="mb-2 flex md:block justify-between">
+            <span className="text-gray-700 font-semibold text-sm lg:text-lg">
               Suara masuk: {progres.persen}%
+            </span>
+            <span className="text-gray-700 font-semibold text-sm lg:text-lg md:hidden">
+              Update: {updatedAt.split(" ")[1]} WIB
             </span>
           </div>
           <div className="flex mb-2">
@@ -152,13 +155,6 @@ function ChartGubernurComponent() {
           </div>
         </div>
       </div>
-
-      {/* Banner Section */}
-      {/* <div className="w-full lg:w-1/2 relative bg-orange-400 p-4 text-center rounded-lg mt-4">
-        <span className="text-lg font-bold text-white animate-bounce">
-          🎉 Iqbal Dinda memimpin 🎉
-        </span>
-      </div> */}
 
       {/* Navigation Buttons */}
       <div className="mt-6 flex gap-4">

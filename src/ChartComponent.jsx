@@ -8,21 +8,21 @@ Chart.register(ChartDataLabels);
 
 const DataVisualization = () => {
   const chartValues = {
-    1000865: 43450,
-    1000866: 98764,
-    1000867: 53458,
-    1000868: 55352,
+    1000865: 44271,
+    1000866: 101098,
+    1000867: 54946,
+    1000868: 56588,
   };
   const progress = {
     total: 929,
-    persen: 95.37,
-    progres: 886,
+    persen: 97.63,
+    progres: 907,
   };
   const [chartData, setChartData] = useState(chartValues);
   const [progres, setProgres] = useState(progress);
   const [isLoading, setIsLoading] = useState(true);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
-  const [updatedAt, setUpdatedAt] = useState("2024-11-27 23:15:00");
+  const [updatedAt, setUpdatedAt] = useState("2024-11-28 09:30:00");
 
   useEffect(() => {
     fetch(
@@ -43,7 +43,7 @@ const DataVisualization = () => {
         setIsLoading(false);
       });
 
-    const mediaQuery = window.matchMedia("(max-width: 768px)");
+    const mediaQuery = window.matchMedia("(max-width: 700px)");
     setIsSmallScreen(mediaQuery.matches);
 
     const handleResize = () => setIsSmallScreen(mediaQuery.matches);
@@ -141,9 +141,12 @@ const DataVisualization = () => {
       {/* Informasi Progress Section */}
       <div className="w-full max-w-4xl mt-4">
         <div className="relative pt-1">
-          <div className="mb-2">
-            <span className="text-gray-700 font-semibold">
+          <div className="mb-2 flex md:block justify-between">
+            <span className="text-gray-700 font-semibold text-sm lg:text-lg">
               Suara masuk: {progres.persen}%
+            </span>
+            <span className="text-gray-700 font-semibold text-sm lg:text-lg md:hidden">
+              Update: {updatedAt.split(" ")[1]} WIB
             </span>
           </div>
           <div className="flex mb-2">
@@ -160,18 +163,6 @@ const DataVisualization = () => {
           </div>
         </div>
       </div>
-
-      {/* Banner Section */}
-      {/* <div className="w-full lg:w-1/2 relative bg-orange-400 p-4 text-center rounded-lg mt-4 shadow-lg overflow-hidden glow">
-        <div className="confetti"></div>
-        <div className="confetti"></div>
-        <div className="confetti"></div>
-        <div className="confetti"></div>
-        <div className="confetti"></div>
-        <span className="text-lg font-bold text-white animate-bounce">
-          🎉 Jarot Ansori memimpin 🎉
-        </span>
-      </div> */}
 
       {/* Navigation Buttons */}
       <div className="mt-6 flex gap-4">
