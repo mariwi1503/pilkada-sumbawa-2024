@@ -40,6 +40,9 @@ const Home = () => {
           tentang perhitungan suara untuk pemilihan Bupati Sumbawa dan Gubernur
           NTB yang diambil dari data terbaru KPU.
         </p>
+        <p className="mt-3 text-2xl text-orange-500">
+          "Selamat ibu ramlah menang sadua jaran 😁 😁 😁"
+        </p>
       </div>
     </div>
   );
