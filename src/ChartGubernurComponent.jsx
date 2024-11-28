@@ -32,8 +32,8 @@ function ChartGubernurComponent() {
         const chartValues = data.tungsura.chart;
         const progress = data.tungsura.chart.progres;
 
-        setChartData(chartValues);
-        setProgres(progress);
+        // setChartData(chartValues);
+        // setProgres(progress);
         setUpdatedAt(data.ts);
         setIsLoading(false);
       })
