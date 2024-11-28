@@ -6,17 +6,16 @@ import { Chart } from "chart.js";
 
 Chart.register(ChartDataLabels);
 
-const DataVisualization = () => {
+function ChartGubernurComponent() {
   const chartValues = {
-    1000865: 43450,
-    1000866: 98764,
-    1000867: 53458,
-    1000868: 55352,
+    1000039: 762751,
+    1000040: 870763,
+    1000041: 1139690,
   };
   const progress = {
-    total: 929,
-    persen: 95.37,
-    progres: 886,
+    total: 8405,
+    persen: 98.49,
+    progres: 8278,
   };
   const [chartData, setChartData] = useState(chartValues);
   const [progres, setProgres] = useState(progress);
@@ -26,7 +25,7 @@ const DataVisualization = () => {
 
   useEffect(() => {
     fetch(
-      "https://sirekappilkada-obj-data.kpu.go.id/pilkada/hhcw/pkwkk/52/5204.json"
+      "https://sirekappilkada-obj-data.kpu.go.id/pilkada/hhcw/pkwkp/52.json"
     )
       .then((response) => response.json())
       .then((data) => {
@@ -56,13 +55,8 @@ const DataVisualization = () => {
     return <div>Loading...</div>;
   }
 
-  const labels = [
-    "Novi - Talib",
-    "Jarot - Ansori",
-    "Rafiq - Sahril",
-    "Mahmud - BJS",
-  ];
-  const hardCode = ["1000865", "1000866", "1000867", "1000868"];
+  const labels = ["Rohmi - Pirin", "Zul - Uhel", "Iqbal - Dinda"];
+  const hardCode = ["1000039", "1000040", "1000041"];
   const dataValues = hardCode.map((key) => chartData[key]);
   const totalVotes = dataValues.reduce((sum, value) => sum + value, 0);
   const percentages = dataValues.map((value) =>
@@ -75,8 +69,8 @@ const DataVisualization = () => {
       {
         label: `Diperbarui pada: ${updatedAt}`,
         data: dataValues,
-        backgroundColor: ["#4CAF50", "#2196F3", "#FF9800", "#F44336"],
-        borderColor: ["#388E3C", "#1976D2", "#F57C00", "#D32F2F"],
+        backgroundColor: ["#4CAF50", "#2196F3", "#FF9800"],
+        borderColor: ["#388E3C", "#1976D2", "#F57C00"],
         borderWidth: 1,
       },
     ],
@@ -92,11 +86,11 @@ const DataVisualization = () => {
         enabled: true,
       },
       datalabels: {
-        anchor: "center", // Menempatkan label di tengah segmen
+        anchor: "center",
         align: "center",
-        padding: 5, // Tambahkan jarak agar tidak terlalu dekat dengan batas segmen
+        padding: 5,
         formatter: (value, context) => `${percentages[context.dataIndex]}%`,
-        color: "#fff", // Pastikan warna label kontras
+        color: "#fff",
         font: {
           weight: "bold",
           size: 12,
@@ -112,7 +106,7 @@ const DataVisualization = () => {
             },
           },
           y: {
-            max: 120000, // Atur nilai maksimal sumbu y
+            max: 1500000,
             title: {
               display: true,
               text: "Jumlah Suara",
@@ -124,13 +118,11 @@ const DataVisualization = () => {
   };
 
   return (
-    <div className="p-6 bg-gradient-to-r from-teal-200 via-green-300 to-blue-400 min-h-screen flex flex-col items-center">
-      <h1 className="text-2xl font-bold text-white mb-4">
-        Pilkada Sumbawa 2024
-      </h1>
+    <div className="p-6 bg-gradient-to-r from-green-200 via-blue-300 to-blue-500 min-h-screen flex flex-col items-center">
+      <h1 className="text-2xl font-bold text-white mb-4">Pilgub NTB 2024</h1>
 
       {/* Chart Section */}
-      <div className="w-full max-w-4xl bg-white p-6 rounded-lg shadow-md">
+      <div className="w-full max-w-4xl bg-white p-6 rounded-lg">
         {isSmallScreen ? (
           <Pie data={data} options={options} />
         ) : (
@@ -162,14 +154,9 @@ const DataVisualization = () => {
       </div>
 
       {/* Banner Section */}
-      {/* <div className="w-full lg:w-1/2 relative bg-orange-400 p-4 text-center rounded-lg mt-4 shadow-lg overflow-hidden glow">
-        <div className="confetti"></div>
-        <div className="confetti"></div>
-        <div className="confetti"></div>
-        <div className="confetti"></div>
-        <div className="confetti"></div>
+      {/* <div className="w-full lg:w-1/2 relative bg-orange-400 p-4 text-center rounded-lg mt-4">
         <span className="text-lg font-bold text-white animate-bounce">
-          🎉 Jarot Ansori memimpin 🎉
+          🎉 Iqbal Dinda memimpin 🎉
         </span>
       </div> */}
 
@@ -182,14 +169,14 @@ const DataVisualization = () => {
           Home
         </button>
         <button
-          onClick={() => (window.location.href = "/gubernur")}
+          onClick={() => (window.location.href = "/bupati")}
           className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-md text-sm font-semibold"
         >
-          Hasil Perhitungan Gubernur
+          Hasil Perhitungan Bupati
         </button>
       </div>
     </div>
   );
-};
+}
 
-export default DataVisualization;
+export default ChartGubernurComponent;
