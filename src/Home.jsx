@@ -35,10 +35,11 @@ const Home = () => {
 
       {/* Deskripsi Website */}
       <div className="mt-12 max-w-md md:max-w-2xl lg:max-w-3xl text-center bg-white p-4 md:p-6 lg:p-8 rounded-lg">
-        <p className="text-sm md:text-base lg:text-lg text-gray-700">
-          Selamat datang di situs kami! Situs ini menyediakan informasi terkini
-          tentang perhitungan suara untuk pemilihan Bupati Sumbawa dan Gubernur
-          NTB yang diambil dari data terbaru KPU.
+        <p className="text-sm md:text-base lg:text-lg text-gray-700 text-justify">
+          Silamo mo bapak ibu, data de sia gita pang website ta hasil kalkulasi
+          KPU lansung. Kebetulan sampai saat ta masih unggul{" "}
+          <strong>"Jarot - Ansori"</strong> untuk Bupati. Dan masih unggul{" "}
+          <strong>"Iqbal - Dinda"</strong> untuk Gubernur.
         </p>
         <p className="mt-3 text-2xl text-orange-500">
           "Selamat ibu ramlah menang sadua jaran 😁 😁 😁"
